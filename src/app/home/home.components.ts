@@ -25,22 +25,15 @@ export class Home {
   onSearchChange(query: string): void {
     this.searchQuery = query.trim();
 
-    const books = this.bookService.books(); //sempre atualizado
-
     if (!this.searchQuery) {
       this.filteredSuggestions = [];
       this.showSuggestions = false;
       return;
     }
 
-    const lowerQuery = this.searchQuery.toLowerCase();
+    const filteredBooks = this.bookService.filterBooks(this.searchQuery);
 
-    this.filteredSuggestions = books
-      .filter(book =>
-        book.title.toLowerCase().includes(lowerQuery) ||
-        book.author.toLowerCase().includes(lowerQuery) ||
-        book.year.toString().includes(lowerQuery)
-      )
+    this.filteredSuggestions = filteredBooks
       .map(book => `${book.title} – ${book.author}, ${book.year}`)
       .filter((value, index, self) => self.indexOf(value) === index)
       .slice(0, 5);
