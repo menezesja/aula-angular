@@ -1,0 +1,13 @@
+<section class="list">
+  <h2>Catálogo de Livros</h2>
+  <ul class="list__grid">
+    @for (b of filteredBooks(); track b.id) {
+      <li>
+        <app-book-card [book]="b"></app-book-card>
+        <button class="btn" (click)="remove(b.id)">Remover</button>
+      </li>
+    } @empty {
+      <p class="list__empty">Nenhum livro encontrado</p>
+    }
+  </ul>
+</section>

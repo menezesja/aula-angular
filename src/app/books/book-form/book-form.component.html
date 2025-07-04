@@ -1,0 +1,23 @@
+<div class="form-wrapper">
+    <mat-card class="form-card">
+        <mat-card-title>Cadastro de livros</mat-card-title>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" required/>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Author</mat-label>
+                <input matInput formControlName="author" required/>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Year</mat-label>
+                <input matInput type="number" formControlName="year" required/>
+            </mat-form-field>
+            <div class="form-actions">
+                <button mat-flat-button color="primary" type="submit" [disabled] = "form.invalid">Save</button>
+                <button mat-button type="button" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

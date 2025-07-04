@@ -1,0 +1,30 @@
+<header class="navbar">
+  <div class="navbar__left">
+    <strong>📚 Biblioteca</strong>
+  </div>
+
+  <div class="navbar__center search-container">
+    <input type="text" 
+       [(ngModel)]="searchQuery"
+       (focus)="showSuggestions = true"
+       (blur)="hideSuggestionsWithDelay()"
+       (ngModelChange)="onSearchChange($event)"
+       placeholder="Buscar livro..." />
+
+    <ul class="suggestions" *ngIf="showSuggestions && filteredSuggestions.length > 0">
+    <li *ngFor="let suggestion of filteredSuggestions" 
+        (mousedown)="selectSuggestion(suggestion)">
+        {{ suggestion }}
+    </li>
+    </ul>
+  </div>
+
+  <div class="navbar__right">
+    <a routerLink="/add-book" class="btn">➕ Adicionar Livro</a>
+    <a class="btn btn--outline">Login</a>
+  </div>
+</header>
+
+<main class="container">
+  <app-book-list [searchQuery]="submittedQuery"></app-book-list>
+</main>

@@ -1,0 +1,11 @@
+<section>
+    <h2>Catálogo de Livros</h2>
+
+    <ul>
+        <li *ngFor="let b of books; trackBy: trackById">
+            <app-book-card [book]="b"></app-book-card>
+            <button class="btn" (click)="remove(b.id)">Remover</button>
+        </li>
+    </ul>
+    <p *ngIf="!books.length">Nenhum livro encontrado</p>
+</section>
