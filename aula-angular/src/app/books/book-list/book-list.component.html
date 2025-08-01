@@ -1,0 +1,27 @@
+<section class="list">
+    <h2>Catálogo de livros</h2>
+    <ul class="list__grid">
+        @for (b of books(); track b.id){
+            <li>
+                <app-book-card [book]="b">
+                </app-book-card>
+                <div class="list__actions">
+
+                    <button class="btn" 
+                    (click)="remove(b.id)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Remove</span>
+                    </button>
+                    
+                    <button class="btn" [routerLink]="['edit-book', b.id]">
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                </div>
+                
+            </li>
+        }@empty {
+            <p class="list__empty">Livro em branco</p>
+        }
+    </ul>
+</section>

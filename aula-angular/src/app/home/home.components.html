@@ -1,0 +1,43 @@
+<mat-toolbar color="primary" class="navbar">
+    <div class="navbar__left">
+        <strong>📚 Biblioteca do Chiquinho</strong>
+    </div>
+    <div class="navbar__center">
+        <app-search></app-search>
+    </div>
+    <div class="navbar__right">
+        <button mat-icon-button routerLink="/add-book">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="Perfil">
+            <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+            @if (isLoggedIn){
+                <button mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Sair</span>
+                </button>
+                <button mat-menu-item><!--[routerLink]="'/edit-user/:id'"--> 
+                    <mat-icon>edit-user</mat-icon>
+                    <span>Editar Perfil</span>
+                </button>
+            } @else {
+                <button mat-menu-item>
+                    <mat-icon>login</mat-icon><!--[routerLink]="'/login'"-->
+                    <span>Login</span>
+                </button>
+                <button mat-menu-item><!--[routerLink]="'/add'"--> 
+                    <mat-icon>person_add</mat-icon>
+                    <span>Cadastre-se</span>
+                </button>
+
+            }
+        </mat-menu>
+
+    </div>
+</mat-toolbar>
+
+<main class="container">
+    <app-book-list></app-book-list>
+</main>

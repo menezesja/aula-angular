@@ -1,0 +1,51 @@
+$color_border: #ccc;
+$color_suggestions_strong: #007acc;
+$color_bak: #f0f8ff;
+$color_suggestions_li-bk: #f0f0f0;
+
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.search_input{
+    padding: 0.75rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid $color_border;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid $color_border;
+    max-height: 250px;
+    overflow-y: auto; //alinhar o tamanho da caixa de pesquisa
+    z-index: 5;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+::ng-deep .suggestions strong {
+    font-weight: bold;
+    color: $color_suggestions_strong;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.suggestions li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: $color_suggestions_li-bk;
+}

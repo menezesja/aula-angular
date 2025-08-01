@@ -1,0 +1,41 @@
+$clr-border: #d5d9d9;
+$clr-bg    : #fff;
+$clr-title : #0f1111;
+$clr-author: #565959;
+
+.book-card{
+    border: 1px solid $clr-border;
+    border-radius: 6px;
+    background: $clr-bg;
+    padding: 1rem;
+    max-width: 280px;
+    box-shadow: 0 1px 3px rgba(0,0,0, 0.06);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    img {
+        border-radius: 4px;
+        object-fit: cover;
+        height: 160px;
+        width: 100%;
+        margin-bottom: .75rem;
+    }
+
+    &__title {
+        margin: 0 0 .25rem;
+        font-size: 1.1rem;
+        color: $clr-title;
+    }
+
+    &__author {
+        margin: 0 0 .5rem;
+        font-size: .9rem;
+        color: $clr-author;
+    }
+
+    &__year {
+        font-size: .8rem;
+        color: $clr-author;
+    }
+}
